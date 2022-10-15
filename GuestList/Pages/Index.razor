@@ -4,21 +4,28 @@
 <div id="container">
     <h1 id="topBox"> Upcoming Parties</h1>
     <button>Add New Party</button>
-    <ul id="partiesList">
-        <li>aaa</li>
-        <li>aaa</li>
-        <li>aaa</li>
-        <li>aaa</li>
-        <li>aaa</li>
+    <ul class="rowBox">
+        <div class="columnBox">
+            <li>aaa
+            <button @onclick=@Navigate>Test-li-See More</button>
+            </li>
+            <li>aaa
+            <button @onclick=@Navigate>Test-li-See More</button>
+            </li>  
+            <li>aaa
+            <button @onclick=@Navigate>Test-li-See More</button>
+            </li>  
+
         <!-- foreach(var X in Y)
         {
             <li>
-                @X
+                @X.name
             <button @onclick=@Navigate>See More</button>
             </li>
         } -->
+
+        </div>
     </ul>
-    <button @onclick=@Navigate></button>
 </div>
 
 @code {

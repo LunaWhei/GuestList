@@ -1,6 +1,13 @@
 ﻿#topBox{
     color: rebeccapurple;
 }
-#partiesList {
-    list-style: none;
+.rowBox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.columnBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

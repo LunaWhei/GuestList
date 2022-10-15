@@ -2,15 +2,47 @@
 @inject NavigationManager UriHelper
 
 <div id="container">
-    <div id="topBox">
-        <img @onclick=@Navigate id ="goback" src="images/Back.svg" />
-        <h1 id="topBox">Y.name</h1>
-        <span>Y.creationDate</span>
+    <div class="rowBox">
+        <img @onclick=@Navigate id ="goback" src="images/back.svg" />
+        <div class="columnBox">
+            <h1 id="topBox">Y.name</h1>
+            <span>creationDate</span>
+        </div>
     </div>
     <div>
-        Y.localization
-        Y.partyTime
-        Y.description
+        <div class="rowBox">
+            <img class="size" src="images/info.svg" />
+            <h3>Info</h3>
+        </div>
+        <div class="columnBox" id="alignleft">
+            <p>Localization: localization</p>
+            <p>Party Date: partyDate</p>
+            <p>Description: description</p>
+        </div>
+    </div>
+    <div>
+        <div class="rowBox">
+            <img class="size" src="images/sign.svg" />
+            <h3>Guests</h3>
+        </div>
+        <ul class="columnBox" id="alignleft">
+            <li>guestList
+                <img id="remove" src="images/remove.svg" />
+            </li>
+            <li>guestList
+                <img id="remove" src="images/remove.svg" />
+            </li>
+            <li>guestList
+                <img id="remove" src="images/remove.svg" />
+            </li>
+            <!-- foreach(var X in Y)
+            {
+                <li>
+            @X.name
+                <button @onclick= >Remove</button>
+                </li>
+            } -->
+        </ul>
     </div>
 </div>
 
