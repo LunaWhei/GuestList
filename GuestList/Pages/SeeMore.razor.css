@@ -1,0 +1,13 @@
+﻿#topBox {
+    color: rebeccapurple;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5%;
+}
+h1{
+    margin: 0;
+}
+#goback {
+    height: 24px;
+}

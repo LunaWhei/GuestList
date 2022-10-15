@@ -17,6 +17,7 @@ string localization
 datetime creationDate
 datetine partyTime
 list<guest> guestList
+-(to do)-> string description
 
 
 

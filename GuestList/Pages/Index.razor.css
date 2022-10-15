@@ -1,3 +1,6 @@
-﻿body {
-
+﻿#topBox{
+    color: rebeccapurple;
+}
+#partiesList {
+    list-style: none;
 }

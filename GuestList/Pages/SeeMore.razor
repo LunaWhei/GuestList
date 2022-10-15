@@ -1,0 +1,23 @@
+﻿@page "/SeeMore"
+@inject NavigationManager UriHelper
+
+<div id="container">
+    <div id="topBox">
+        <img @onclick=@Navigate id ="goback" src="images/Back.svg" />
+        <h1 id="topBox">Y.name</h1>
+        <span>Y.creationDate</span>
+    </div>
+    <div>
+        Y.localization
+        Y.partyTime
+        Y.description
+    </div>
+</div>
+
+
+@code {
+    void Navigate()
+    {
+         UriHelper.NavigateTo("/");
+    }
+}
