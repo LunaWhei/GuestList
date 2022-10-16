@@ -3,29 +3,29 @@
 
 <div id="container">
     <h1 id="topBox"> Upcoming Parties</h1>
-    <button>Add New Party</button>
     <ul class="rowBox">
         <div class="columnBox">
             <li>aaa
-            <button @onclick=@Navigate>Test-li-See More</button>
+            <img @onclick=@Navigate id ="seemore" src="images/seemore.svg" />
             </li>
             <li>aaa
-            <button @onclick=@Navigate>Test-li-See More</button>
+            <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
             </li>  
             <li>aaa
-            <button @onclick=@Navigate>Test-li-See More</button>
+            <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
             </li>  
 
         <!-- foreach(var X in Y)
         {
             <li>
                 @X.name
-            <button @onclick=@Navigate>See More</button>
+            <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
             </li>
         } -->
 
         </div>
     </ul>
+    <button>Add New Party</button>
 </div>
 
 @code {

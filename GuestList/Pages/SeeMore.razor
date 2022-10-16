@@ -35,21 +35,54 @@
             <li>guestList
                 <img id="remove" src="images/remove.svg" />
             </li>
-            <!-- foreach(var X in Y)
-            {
-                <li>
-            @X.name
-                <button @onclick= >Remove</button>
-                </li>
-            } -->
         </ul>
     </div>
+    <EditForm Model="guest" OnValidSubmit="HandleSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <p>
+            <label class="flex">
+                Name:
+                <InputText @bind-Value="guest.name" />
+            </label>
+        </p>
+        <p>
+            <label class="flex">
+                Last Name:
+                <InputText @bind-Value="guest.lastName" />
+            </label>
+        </p>
+        <p>
+            <label class="flex">
+                Age:
+                <InputNumber @bind-Value="guest.age" />
+            </label>
+        </p>
+
+        <button type="submit">Add Guest</button>
+    </EditForm> 
 </div>
 
 
 @code {
-    void Navigate()
-    {
-         UriHelper.NavigateTo("/");
-    }
+        void Navigate()
+        {
+            UriHelper.NavigateTo("/");
+        }
+
+        public class Guest{
+            public string name { get; set; }
+            public string lastName { get; set; }
+            public int age { get; set; }
+        }
+
+        List<Guest> guests = new List<Guest>();
+
+        Guest guest = new Guest();
+   
+        private void HandleSubmit()
+        {
+            guests.Add(guest);
+        }
 }

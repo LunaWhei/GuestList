@@ -11,3 +11,15 @@
     flex-direction: column;
     align-items: center;
 }
+    .columnBox li {
+        margin-bottom: 16px;
+    }
+#seemore {
+    height: 24px;
+    margin-left: 12px;
+    cursor: pointer;
+    transition: transform .2s;
+}
+    #seemore:hover {
+        transform: scale(1.2);
+    }
