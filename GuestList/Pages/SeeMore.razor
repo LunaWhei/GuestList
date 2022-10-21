@@ -117,17 +117,10 @@
 
         resultsofyourtask.Wait();
         var response = resultsofyourtask.Result;
-        if (response.IsSuccessStatusCode)
-        {
-            //wyświetl komunikat że dodało nowego gościa
-        }
-         else
-        {
-            //że coś poszło nie tak
-
-        }
-        
-
-        
+  
+    }
+    private void GetAllGuests()
+    {
+        var resultsofyourtask = Task.Run(() => httpClient.GetAsync("https://localhost:44386/api/Guest/GetAllGuests"));
     }
 }
