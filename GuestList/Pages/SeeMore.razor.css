@@ -1,14 +1,59 @@
-﻿.rowBox {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: calc(32px-17.6px);
-    margin-bottom: 16px;
+﻿#container {
+    padding: 5%;
+    height: 100%;
+    width: 100%;
 }
-h1, h3{
-    color: rebeccapurple;
+#container1 {
+    width: 40%;
+    height: 100%;
+}
+#container2 {
+    width: 60%;
+    height: 100%;
+}
+#container3 {
+    height: 50%;
+    margin-bottom: 2%;
+}
+#container4 {
+    height: 48%;
+}
+.rowBox {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    height: 30%;
+    padding: 0;
+    border-radius: 5px;
+}
+
+.rowBox2 {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    height: 30%;
+    padding: 0;
+    border-radius: 5px;
+}
+
+.rowBox3 {
+    display: flex;
+    flex-wrap: nowrap;
+    list-style: none;
+    align-items: center;
+    justify-content: space-between;
+    height: 30%;
+    padding: 0;
+    border-radius: 5px;
+}
+
+h2, h3, p{
+    color: #F2E4D3;
     margin: 0;
     width: auto;
+}
+.white {
+    color: white;
 }
 img {
     margin-right: 16px;
@@ -16,20 +61,11 @@ img {
 #goback {
     height: 24px;
     cursor: pointer;
-    margin-right: 32px;
+    margin-right: 3%;
     transition: transform .2s;
 }
     #goback:hover {
         transform: scale(1.3);
-    }
-#remove {
-    height: 24px;
-    margin-left: 12px;
-    cursor: pointer;
-    transition: transform .2s;
-}
-    #remove:hover {
-        transform: scale(1.2);
     }
 .size {
     height: 16px;
@@ -42,11 +78,128 @@ img {
     .columnBox li {
         margin-bottom: 16px;
     }
-#alignleft {
+#headerBox {
+    height: auto;
+}
+#alignLeft {
     align-items: flex-start;
 }
+#alignTop {
+    align-items: start;
+}
+#overFlow {
+    width: 100%;
+    height: 70px;
+    margin-top: 2px;
+    text-align: center;
+    overflow-y: auto;
+    border-radius: 5px;
+    background: repeating-linear-gradient( 45deg, #018D8F, #018D8F 1vw, #5BBDB7 1vw, #5BBDB7 2vw );
+}
+::-webkit-scrollbar {
+    width: max(0.5vw, 2vh);
+}
+::-webkit-scrollbar-thumb {
+    background: #F2E4D3;
+}
+.rowBoxList {
+    padding: 2% 0;
+}
+.columnBoxList {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    flex-flow: column wrap;
+    align-items: center;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+}
+    .columnBoxList li {
+        padding-top: 7px;
+        padding-bottom: 7px;
+        height: 33.3%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        scroll-snap-align: start;
+    }
+
+#stripes {
+    align-items: flex-start;
+    list-style: none;
+    width: 100%;
+    height: 70%;
+    padding: 0;
+    margin: 0;
+    background: repeating-linear-gradient( 45deg, #018D8F, #018D8F 1vw, #5BBDB7 1vw, #5BBDB7 2vw );
+}
+
+.button {
+    background: repeating-linear-gradient( 45deg, #018D8F, #018D8F 1vw, #5BBDB7 1vw, #5BBDB7 2vw );
+    margin-right: 2%;
+    border-radius: 5px;
+    border: none;
+    color: #F2E4D3;
+}
+
 .flex {
     display: flex;
     justify-content: space-between;
     width: 20vw;
+}
+
+@media (max-width: 640.98px) {
+    .rowBox {
+        margin: 2vw;
+        height: auto;
+        justify-content: center;
+    }
+    .rowBox3 {
+        margin: 2vw;
+        height: auto;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    #alignLeft {
+        align-items: center;
+    }
+    #container {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    #container1 {
+        height: 55%;
+        width: 90%
+    }
+    #container2 {
+        padding: 0;
+        height: 45%;
+        width: 90%
+    }
+    #container4 {
+        align-items: center;
+    }
+    #overFlow {
+        margin-top: 8px;
+        height: 100px;
+    }
+}
+
+@media (min-width: 640.98px) {
+    #container2 {
+        padding-left: 11%;
+    }
+}
+
+@media (min-width: 850px) {
+    #container2 {
+        padding-left: 0;
+    }
+    #overFlow {
+        width: 90%;
+    }
 }

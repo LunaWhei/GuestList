@@ -1,31 +1,65 @@
 ﻿@page "/"
 @inject NavigationManager UriHelper
 
-<div id="container">
-    <h1 id="topBox"> Upcoming Parties</h1>
-    <ul class="rowBox">
-        <div class="columnBox">
-            <li>aaa
-            <img @onclick=@Navigate id ="seemore" src="images/seemore.svg" />
-            </li>
-            <li>aaa
-            <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
-            </li>  
-            <li>aaa
-            <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
-            </li>  
-
-        <!-- foreach(var X in Y)
-        {
-            <li>
-                @X.name
-            <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
-            </li>
-        } -->
-
-        </div>
-    </ul>
-    <button>Add New Party</button>
+<div id="container1">
+    <div id="container2">
+        <h1 id="topBox"> Upcoming Parties</h1>
+        <ul class="rowBox" id="stripes">
+            <div class="columnBox">
+                <li >
+                    aaa
+                    <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
+                </li>
+                <li>
+                    aaa
+                    <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
+                </li>
+                <li>
+                    aaa
+                    <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
+                </li>
+                <li>
+                    aaa
+                    <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
+                </li>
+                <li>
+                    aaa
+                    <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
+                </li>
+                <li>
+                    aaa
+                    <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
+                </li>
+                <li>
+                    aaa
+                    <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
+                </li>
+                <li>
+                    aaa
+                    <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
+                </li>
+                <li>
+                    aaa
+                    <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
+                </li>
+                <li>
+                    aaa
+                    <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
+                </li>
+                <li>
+                    aaa
+                    <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
+                </li>
+                <li>
+                    aaa
+                    <img @onclick=@Navigate id="seemore" src="images/seemore.svg" />
+                </li>
+            </div>
+        </ul>
+    </div>
+    <div id="container3">
+        <button>Add New Party</button>
+    </div>
 </div>
 
 @code {

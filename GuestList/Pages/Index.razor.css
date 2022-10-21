@@ -1,18 +1,68 @@
-﻿#topBox{
-    color: rebeccapurple;
+﻿#container1 {
+    padding: 5%;
+    height: 100%;
+    width: 100%;
+}
+#container2 {
+    height: 50%;
+    width: 100%;
+    margin: 0 0 1% 0;
+}
+#container3 {
+    height: 50%;
+    width: 100%;
+}
+#topBox {
+    color: #F2E4D3;
+    margin: 0 0 1% 0;
 }
 .rowBox {
     display: flex;
     justify-content: flex-start;
+    list-style: none;
     align-items: center;
+    height: 65%;
+    padding: 0;
+    border-radius: 5px;
 }
+    #stripes {
+    background: repeating-linear-gradient(
+    45deg,
+    #018D8F,
+    #018D8F 5%,
+    #5BBDB7 5%,
+    #5BBDB7 10%
+    );
+    }
+
+::-webkit-scrollbar {
+    width: 0.5vw;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #F2E4D3;
+}
+
 .columnBox {
     display: flex;
+    height: 100%;
+    width: 100%;
     flex-direction: column;
+    flex-flow: column wrap;
     align-items: center;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
 }
     .columnBox li {
-        margin-bottom: 16px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        height: 33.3%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        scroll-snap-align: start;
     }
 #seemore {
     height: 24px;
@@ -21,5 +71,5 @@
     transition: transform .2s;
 }
     #seemore:hover {
-        transform: scale(1.2);
+        transform: scale(1.1);
     }

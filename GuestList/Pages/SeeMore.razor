@@ -1,67 +1,92 @@
 ﻿@page "/SeeMore"
 @inject NavigationManager UriHelper
 
-<div id="container">
-    <div class="rowBox">
-        <img @onclick=@Navigate id ="goback" src="images/back.svg" />
-        <div class="columnBox">
-            <h1 id="topBox">Y.name</h1>
-            <span>creationDate</span>
+<div class="rowBox" id="container">
+    <div id="container1">
+        <div class="rowBox" id="headerBox">
+            <img @onclick=@Navigate id="goback" src="images/back.svg" />
+            <div class="columnBox">
+                <h2 id="topBox">Y.name</h2>
+                <p class="white">creationDate</p>
+            </div>
+        </div>
+        <div>
+            <div class="rowBox">
+                <img class="size" src="images/info.svg" />
+                <h3>Info</h3>
+            </div>
+            <div class="columnBox" id="alignLeft">
+                <div class="columnBox" id="alignLeft">
+                    <p>Localization:</p> 
+                    <p class="white">localization</p>
+                </div>
+                <div class="columnBox" id="alignLeft">
+                    <p>Party Date:</p> 
+                    <p class="white">partyDate</p>
+                </div>
+                <div class="columnBox" id="alignLeft">
+                    <p>Description:</p>
+                    <p class="white" id="overFlow">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
         </div>
     </div>
-    <div>
-        <div class="rowBox">
-            <img class="size" src="images/info.svg" />
-            <h3>Info</h3>
+    <div id="container2">
+        <div id="container3">
+            <div class="rowBox" id="rowBoxList">
+                <img class="size" src="images/sign.svg" />
+                <h3>Guests</h3>
+            </div>
+            <ul class="rowBox2" id="stripes">
+                <div class="columnBoxList">
+                    <li>
+                        Maciej Zabłocki
+                    </li>
+                    <li>
+                        Kacper Osiadło
+                    </li>
+                    <li>
+                        Paweł Ardanowski
+                    </li>
+                    <li>
+                        guest
+                    </li>
+                    <li>
+                        guest
+                    </li>
+                    <li>
+                        guest
+                    </li>
+                    <li>
+                        guest
+                    </li>
+                    <li>
+                        guest
+                    </li>
+                    <li>
+                        guest
+                    </li>
+                </div>
+            </ul>
         </div>
-        <div class="columnBox" id="alignleft">
-            <p>Localization: localization</p>
-            <p>Party Date: partyDate</p>
-            <p>Description: description</p>
-        </div>
-    </div>
-    <div>
-        <div class="rowBox">
-            <img class="size" src="images/sign.svg" />
-            <h3>Guests</h3>
-        </div>
-        <ul class="columnBox" id="alignleft">
-            <li>guestList
-                <img id="remove" src="images/remove.svg" />
-            </li>
-            <li>guestList
-                <img id="remove" src="images/remove.svg" />
-            </li>
-            <li>guestList
-                <img id="remove" src="images/remove.svg" />
-            </li>
-        </ul>
-    </div>
-    <EditForm Model="guest" OnValidSubmit="HandleSubmit">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+        <EditForm id="container4" Model="guest" OnValidSubmit="HandleSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
 
-        <p>
-            <label class="flex">
-                Name:
-                <InputText @bind-Value="guest.name" />
+            <label class="rowBox3">
+                <p>Name:</p>
+            <InputText style="width: 50%; color: black; border: 0px; background-color: #F2E4D3;" @bind-Value="guest.name" />
             </label>
-        </p>
-        <p>
-            <label class="flex">
-                Last Name:
-                <InputText @bind-Value="guest.lastName" />
-            </label>
-        </p>
-        <p>
-            <label class="flex">
-                Age:
-                <InputNumber @bind-Value="guest.age" />
-            </label>
-        </p>
 
-        <button type="submit">Add Guest</button>
-    </EditForm> 
+            <label class="rowBox3">
+                <p>Last Name:</p>
+            <InputText style="width: 50%; color: black; border: 0px; background-color: #F2E4D3;" @bind-Value="guest.lastName" />
+            </label>
+            <div class="rowBox2">
+                <button class="button" type="submit">Sign Up</button>
+            </div>
+        </EditForm>
+    </div>
 </div>
 
 
