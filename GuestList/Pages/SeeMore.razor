@@ -1,4 +1,4 @@
-﻿@page "/SeeMore"
+﻿@page "/SeeMore/{CurrentCount:int}"
 @using GuestList.Models
 @using System.Text.Json
 @using System.Net.Http.Json
@@ -43,34 +43,12 @@
                 <h3>Guests</h3>
             </div>
             <ul class="rowBox2" id="stripes">
-                <div class="columnBoxList">
-                    <li>
-                        Maciej Zabłocki
-                    </li>
-                    <li>
-                        Kacper Osiadło
-                    </li>
-                    <li>
-                        Paweł Ardanowski
-                    </li>
-                    <li>
-                        guest
-                    </li>
-                    <li>
-                        guest
-                    </li>
-                    <li>
-                        guest
-                    </li>
-                    <li>
-                        guest
-                    </li>
-                    <li>
-                        guest
-                    </li>
-                    <li>
-                        guest
-                    </li>
+                <div style="height:600px" class="columnBoxList">
+                    @foreach (var guest in guests)
+                    {
+                        <p>@guest.lastName</p>
+                        <p>@guest.name</p>
+                    }
                 </div>
             </ul>
         </div>
@@ -80,15 +58,15 @@
 
             <label class="rowBox3">
                 <p>Name:</p>
-            <InputText style="width: 50%; color: black; border: 0px; background-color: #F2E4D3;" @bind-Value="guest.name" />
+                <InputText style="width: 50%; color: black; border: 0px; background-color: #F2E4D3;" @bind-Value="guest.name" />
             </label>
 
             <label class="rowBox3">
                 <p>Last Name:</p>
-            <InputText style="width: 50%; color: black; border: 0px; background-color: #F2E4D3;" @bind-Value="guest.lastName" />
+                <InputText style="width: 50%; color: black; border: 0px; background-color: #F2E4D3;" @bind-Value="guest.lastName" />
             </label>
             <div class="rowBox2">
-            <button class="button" type="submit">Sign Up</button>
+                <button class="button" type="submit">Sign Up</button>
             </div>
         </EditForm>
     </div>
@@ -96,8 +74,10 @@
 
 
 @code {
+    [Parameter]
+    public int CurrentCount { get; set; } = 0;
     Guest guest = new Guest();
-    List<Guest> guests = new List<Guest>();
+    List<Guest> guests = new();
 
     void Navigate()
     {
@@ -105,7 +85,8 @@
     }
     protected override async Task OnInitializedAsync()
     {
-
+        CurrentCount = CurrentCount;
+        GetAllGuests();
 
     }
 
@@ -117,10 +98,21 @@
 
         resultsofyourtask.Wait();
         var response = resultsofyourtask.Result;
-  
+        if (response.IsSuccessStatusCode)
+        {
+            GetAllGuests();
+        }
+
     }
     private void GetAllGuests()
     {
-        var resultsofyourtask = Task.Run(() => httpClient.GetAsync("https://localhost:44386/api/Guest/GetAllGuests"));
+        var GetAll = Task.Run(() => httpClient.GetAsync("https://localhost:44386/api/Guest/GetAllGuests"));
+        GetAll.Wait();
+         var response = GetAll.Result.Content.ReadAsStringAsync().Result;
+        guests = JsonSerializer.Deserialize<List<Guest>>(response);
+         
+
+
+
     }
 }
