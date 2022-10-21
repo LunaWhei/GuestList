@@ -6,6 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Security.Cryptography.X509Certificates;
+using GuestList.Models;
 
 namespace GuestList
 {
@@ -13,7 +19,9 @@ namespace GuestList
     {
         public static void Main(string[] args)
         {
+            List<Guest> guestList = new List<Guest>();
             CreateHostBuilder(args).Build().Run();
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

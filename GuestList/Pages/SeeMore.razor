@@ -1,5 +1,10 @@
 ﻿@page "/SeeMore"
+@using GuestList.Models
+@using System.Text.Json
+@using System.Net.Http.Json
 @inject NavigationManager UriHelper
+@inject HttpClient httpClient
+
 
 <div class="rowBox" id="container">
     <div id="container1">
@@ -83,7 +88,7 @@
             <InputText style="width: 50%; color: black; border: 0px; background-color: #F2E4D3;" @bind-Value="guest.lastName" />
             </label>
             <div class="rowBox2">
-                <button class="button" type="submit">Sign Up</button>
+            <button class="button" type="submit">Sign Up</button>
             </div>
         </EditForm>
     </div>
@@ -91,23 +96,38 @@
 
 
 @code {
-        void Navigate()
+    Guest guest = new Guest();
+    List<Guest> guests = new List<Guest>();
+
+    void Navigate()
+    {
+        UriHelper.NavigateTo("/");
+    }
+    protected override async Task OnInitializedAsync()
+    {
+
+
+    }
+
+
+    private void HandleSubmit()
+    {
+        guest = new Guest(guest.name, guest.lastName);
+        var resultsofyourtask = Task.Run(() => httpClient.PostAsJsonAsync("https://localhost:44386/api/Guest/AddNewGuest",guest));
+
+        resultsofyourtask.Wait();
+        var response = resultsofyourtask.Result;
+        if (response.IsSuccessStatusCode)
         {
-            UriHelper.NavigateTo("/");
+            //wyświetl komunikat że dodało nowego gościa
         }
-
-        public class Guest{
-            public string name { get; set; }
-            public string lastName { get; set; }
-            public int age { get; set; }
-        }
-
-        List<Guest> guests = new List<Guest>();
-
-        Guest guest = new Guest();
-   
-        private void HandleSubmit()
+         else
         {
-            guests.Add(guest);
+            //że coś poszło nie tak
+
         }
+        
+
+        
+    }
 }

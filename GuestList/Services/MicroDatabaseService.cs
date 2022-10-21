@@ -6,15 +6,15 @@ namespace GuestList.Services
 {
     public class MicroDatabaseService
     {
-        public static readonly MicroDatabaseService microDatabaseService = new MicroDatabaseService();
+        
         List<Guest> guests = new List<Guest>();
         List<Party> party = new List<Party>();
 
 
         public MicroDatabaseService()
         {
-            guests.Add(new Guest("Kacper","Osiadło",24));
-            guests.Add(new Guest("Maciej", "Zabłocki", 24));
+            guests.Add(new Guest("Kacper","Osiadło"));
+            guests.Add(new Guest("Maciej", "Zabłocki"));
             party.Add(new Party("Impreza urodzinowa", "Fordon", new System.DateTime().AddDays(2)));
             
 
