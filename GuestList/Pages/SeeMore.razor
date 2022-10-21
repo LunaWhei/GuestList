@@ -44,33 +44,12 @@
             </div>
             <ul class="rowBox2" id="stripes">
                 <div class="columnBoxList">
+                    @foreach (var item in guests) {
                     <li>
-                        Maciej Zabłocki
+                        @item.name 
+                        @item.lastName
                     </li>
-                    <li>
-                        Kacper Osiadło
-                    </li>
-                    <li>
-                        Paweł Ardanowski
-                    </li>
-                    <li>
-                        guest
-                    </li>
-                    <li>
-                        guest
-                    </li>
-                    <li>
-                        guest
-                    </li>
-                    <li>
-                        guest
-                    </li>
-                    <li>
-                        guest
-                    </li>
-                    <li>
-                        guest
-                    </li>
+                    }
                 </div>
             </ul>
         </div>
@@ -105,8 +84,7 @@
     }
     protected override async Task OnInitializedAsync()
     {
-
-
+        GetAllGuests();
     }
 
 
@@ -117,10 +95,16 @@
 
         resultsofyourtask.Wait();
         var response = resultsofyourtask.Result;
-  
+        if (response.IsSuccessStatusCode)
+        {
+            guests.Add(guest);
+        }
     }
     private void GetAllGuests()
     {
-        var resultsofyourtask = Task.Run(() => httpClient.GetAsync("https://localhost:44386/api/Guest/GetAllGuests"));
+        var allGuests = Task.Run(() => httpClient.GetAsync("https://localhost:44386/api/Guest/GetAllGuests"));
+        allGuests.Wait();
+        var allGuestsResponse = allGuests.Result.Content.ReadAsStringAsync().Result;
+        guests = JsonSerializer.Deserialize<List<Guest>>(allGuestsResponse);
     }
 }
